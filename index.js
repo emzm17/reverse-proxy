@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const prisma = new PrismaClient();
 const app = express();
-const PORT = 8000;
+
 
 const BASE_PATH = `${process.env.BASE}`;
 
@@ -38,6 +38,6 @@ proxy.on('proxyReq', (proxyReq, req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Reverse Proxy Running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Reverse Proxy Running on port ${process.env.PORT}`);
 });
