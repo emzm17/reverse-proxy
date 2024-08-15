@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reverse-proxy-app
+  labels:
+    app: reverse-proxy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reverse-proxy-app
+  template:
+    metadata:
+      labels:
+        app: reverse-proxy-app
+    spec:
+      containers:
+      - name: reverse-proxy-app
+        image: emzm17/reverseproxy:latest
+        ports:
+        - containerPort: 8000
